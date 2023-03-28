@@ -33,26 +33,27 @@ function buildInput() {
         };
     }
 }
-
+//all this does now is push the guess to the array userAnswer really
 function gameUpdate(userGuess) {
-    console.log("User Guess is button " + userGuess);
+    console.log("User Guess is button " + userGuess); //this is just telling me what button they pressed
+    //these next two i was gonna use for checking, but ill keep them here while i work out how to move rows
     let cursor = 0;
     let correct = 0;
-    if (userAnswer.length < 4) {
+    if (userAnswer.length < 4) { //if the user clicks more than 4 times i am ignoring the input for now. will do a message or something later
     userAnswer.push(userGuess);
     console.log("userAnswer now has " + userAnswer.length + " values and is an array of " + userAnswer);
-    // } else if (userAnswer.length == 4) {
-    //     checkRow(userAnswer);
     }
 }
 
+//built a button that checks the input so far (userAnswer)
 function checkRow(userAnswer) {
-    for (let i = 0; i < answer.length; i++) { 
+    for (let i = 0; i < answer.length; i++) { //this was much better than repeating the loop 4 times as per below! :P
         if (answer[i] === userAnswer[i]){
             console.log("position " + i + " is correct!")
             } else if (answer.includes(userAnswer[0])) {
                 console.log("position " + i + " is a right number, but is in the wrong spot...")
             } else {
+                //next ill use these to update the border colours of the tokens, rather than console log
                 console.log("position " + i + ' is the wrong answer, bucko!')
         }
 }
@@ -111,6 +112,6 @@ function checkRow(userAnswer) {
 
 
 
-
+//running the functions here.
 buildBoard();
 buildInput();
