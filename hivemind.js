@@ -2,7 +2,9 @@
 let gridWidth = 4;
 let gridHeight = 8;
 
-//let userGuess = 0;
+//important variables - the user's answer (userAnswer) and the game over counter
+let userAnswer = [];
+let gameOver = 0;
 
 const answer = Array.from({ length: 4 }, () => Math.floor(Math.random() * 4)); // Fill the 'answer' array with 4 random numbers between 0 and 4
 console.log("The answer is " + answer);
@@ -36,18 +38,79 @@ function gameUpdate(userGuess) {
     console.log("User Guess is button " + userGuess);
     let cursor = 0;
     let correct = 0;
-    let userAnswer = 0;
-    for (let c = 0; c < gridWidth; c++) { 
-        if (answer[userGuess] == userGuess) {
-            console.log("Col" + c + " - Button " + userGuess + " is Correct!");
-            correct += 1;
-        } else if (answer.includes(userGuess)) {
-            console.log("Col" + c + " - Button " + userGuess + " is somewhere in the answer.");
-        } else {
-            console.log("Col" + c + " - Button " + userGuess + " is not in the answer.");
-        }
+    if (userAnswer.length < 4) {
+    userAnswer.push(userGuess);
+    console.log("userAnswer now has " + userAnswer.length + " values and is an array of " + userAnswer);
+    // } else if (userAnswer.length == 4) {
+    //     checkRow(userAnswer);
     }
 }
+
+function checkRow(userAnswer) {
+    for (let i = 0; i < answer.length; i++) { 
+        if (answer[i] === userAnswer[i]){
+            console.log("position " + i + " is correct!")
+            } else if (answer.includes(userAnswer[0])) {
+                console.log("position " + i + " is a right number, but is in the wrong spot...")
+            } else {
+                console.log("position " + i + ' is the wrong answer, bucko!')
+        }
+}
+}
+
+
+
+// function checkRow(userAnswer) {
+//     if (answer[0] === userAnswer[0]){
+//         console.log("position 1 is correct!")
+//     } else if (answer.includes(userAnswer[0])) {
+//         console.log("right number, wrong spot...")
+//     } else {
+//         console.log('wrong answer, bucko!')
+//     }
+//     if (answer[1] === userAnswer[1]){
+//         console.log("position 2 is correct!")
+//     } else if (answer.includes(userAnswer[1])) {
+//         console.log("right number, wrong spot...")
+//     } else {
+//         console.log('wrong answer, bucko!')
+//     }
+//     if (answer[2] === userAnswer[2]){
+//         console.log("position 3 is correct!")
+//     } else if (answer.includes(userAnswer[2])) {
+//         console.log("right number, wrong spot...")
+//     } else {
+//         console.log('wrong answer, bucko!')
+//     }
+//     if (answer[3] === userAnswer[3]){
+//         console.log("position 4 is correct!")
+//     } else if (answer.includes(userAnswer[3])) {
+//         console.log("right number, wrong spot...")
+//     } else {
+//         console.log('wrong answer, bucko!')
+//     }
+
+// }
+
+// answer.indexOf(userAnswer[0])
+
+// user could choose their number length
+
+// function checkAnswer() {
+//     for (let c = 0; c < gridWidth; c++) { 
+//         if (answer[userGuess] == userGuess) {
+//             console.log("Col" + c + " - Button " + userGuess + " is Correct!");
+//             correct += 1;
+//         } else if (answer.includes(userGuess)) {
+//             console.log("Col" + c + " - Button " + userGuess + " is somewhere in the answer.");
+//         } else {
+//             console.log("Col" + c + " - Button " + userGuess + " is not in the answer.");
+//         }
+//     }
+// }
+
+
+
 
 buildBoard();
 buildInput();
