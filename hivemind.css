@@ -1,0 +1,50 @@
+/* define overall styling, text etc */
+body {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+#heading1 {
+
+    color: blueviolet;
+}
+
+#heading2 {
+    color: brown;
+
+}
+
+/* use flex wrap for the boxes */
+#game {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: 200px;
+}
+
+/* thought it might be cool to use different shapes, heres the CSS */
+.token {
+    border: 3px solid black;
+    margin: 2px;
+    height: 40px;
+    width: 40px;
+    border-radius: 30%;
+    transform: rotate(45deg);
+  }
+
+/* Style the user input buttons and the corresponding tokens in the game */
+#input0, .token0 {
+    background-color: red;
+}
+
+#input1, .token1 {
+    background-color: blue;
+}
+
+#input2, .token2 {
+    background-color: green;
+}
+
+#input3, .token3 {
+    background-color: orange;
+}
