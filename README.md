@@ -1,5 +1,5 @@
 # Hivemind
-### *A hybrid Wordle/Mastermind type game*
+#### *A hybrid Wordle/Mastermind type game*
 
 
 ## Instructions to play
