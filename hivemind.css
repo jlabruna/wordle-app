@@ -2,11 +2,12 @@
 body {
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
+    background-image: linear-gradient(to right, #434343 0%, rgb(20, 19, 19) 100%);
 }
 
 #heading1 {
 
-    color: blueviolet;
+    color: rgb(0, 255, 64);
 }
 
 #heading2 {
@@ -22,6 +23,210 @@ body {
     width: 200px;
 }
 
+.check {
+  align-items: center;
+  appearance: none;
+  background-clip: padding-box;
+  background-color: initial;
+  background-image: none;
+  border-style: none;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  flex-direction: row;
+  flex-shrink: 0;
+  font-family: Eina01,sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  justify-content: center;
+  line-height: 24px;
+  margin: 0;
+  min-height: 64px;
+  outline: none;
+  overflow: visible;
+  padding: 19px 26px;
+  pointer-events: auto;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  width: auto;
+  word-break: keep-all;
+  z-index: 0;
+}
+
+@media (min-width: 768px) {
+  .button-77 {
+    padding: 19px 32px;
+  }
+}
+
+.check:before,
+.check:after {
+  border-radius: 80px;
+}
+
+.check:before {
+  background-color: rgba(19, 111, 249, 0.32);
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -2;
+}
+
+.check:after {
+  background-color: initial;
+  background-image: linear-gradient(92.83deg, #11c7e7 0, #24d85a 100%);
+  bottom: 4px;
+  content: "";
+  display: block;
+  left: 4px;
+  overflow: hidden;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  transition: all 100ms ease-out;
+  z-index: -1;
+}
+
+.check:hover:not(:disabled):after {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  transition-timing-function: ease-in;
+}
+
+.check:active:not(:disabled) {
+  color: #ccc;
+}
+
+.check:active:not(:disabled):after {
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
+  bottom: 4px;
+  left: 4px;
+  right: 4px;
+  top: 4px;
+}
+
+.check:disabled {
+  cursor: default;
+  opacity: .24;
+}
+
+.reset {
+    align-items: center;
+    appearance: none;
+    background-clip: padding-box;
+    background-color: initial;
+    background-image: none;
+    border-style: none;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    flex-direction: row;
+    flex-shrink: 0;
+    font-family: Eina01,sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    justify-content: center;
+    line-height: 24px;
+    margin: 0;
+    min-height: 64px;
+    outline: none;
+    overflow: visible;
+    padding: 19px 26px;
+    pointer-events: auto;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    width: auto;
+    word-break: keep-all;
+    z-index: 0;
+  }
+  
+  /* @media (min-width: 768px) {
+    .reset {
+      padding: 19px 32px;
+    }
+  } */
+  
+  .reset:before,
+  .reset:after {
+    border-radius: 80px;
+  }
+  
+  .reset:before {
+    background-color: rgba(212, 34, 198, 0.32);
+    content: "";
+    display: block;
+    height: 100%;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -2;
+  }
+  
+  .reset:after {
+    background-color: initial;
+    background-image: linear-gradient(92.83deg, #e7229c 0, #ff0000 100%);
+    bottom: 4px;
+    content: "";
+    display: block;
+    left: 4px;
+    overflow: hidden;
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    transition: all 100ms ease-out;
+    z-index: -1;
+  }
+  
+  .reset:hover:not(:disabled):after {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    transition-timing-function: ease-in;
+  }
+  
+  .reset:active:not(:disabled) {
+    color: #ccc;
+  }
+  
+  .reset:active:not(:disabled):after {
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
+    bottom: 4px;
+    left: 4px;
+    right: 4px;
+    top: 4px;
+  }
+  
+  .reset:disabled {
+    cursor: default;
+    opacity: .24;
+  }
+
+
+
 /* thought it might be cool to use different shapes, heres the CSS */
 .token {
     border: 3px solid black;
@@ -34,29 +239,90 @@ body {
 
 /* Style the user input buttons and the corresponding tokens in the game */
 #input0, .token0 {
-    background-color: purple;
-}
-
-#input1, .token1 {
-    background-color: pink;
-}
-
-#input2, .token2 {
     background-color: red;
 }
 
+#input1, .token1 {
+    background-color: blue;
+}
+
+#input2, .token2 {
+    background-color: green;
+}
+
 #input3, .token3 {
-    background-color: orange;
+    background-color: purple;
 }
 
 .right {
-    border: 3px solid green;
+    animation: anim 30s infinite;
+	border-radius: 30% 70% 53% 47% / 26% 46% 54% 74%;
+	box-shadow: 0 -2vmin 4vmin gold, 0 1px 4px orange inset,
+		0 -2px 7px red;
+	content: "";
+	filter: drop-shadow(0 0 3px gold) drop-shadow(0 5px 4px orangered)
+		drop-shadow(2px -2px 15px orange)
+		drop-shadow(0 0 7px red);
+}
+
+/* I stole this animation from the net and edited it! */
+@keyframes anim { 
+	0%,
+	100% {
+		border-radius: 30% 70% 70% 30% / 30% 52% 48% 70%;
+	}
+
+	10% {
+		border-radius: 50% 50% 20% 80% / 25% 80% 20% 75%;
+	}
+
+	20% {
+		border-radius: 67% 33% 47% 53% / 37% 20% 80% 63%;
+	}
+
+	30% {
+		border-radius: 39% 61% 47% 53% / 37% 40% 60% 63%;
+	}
+
+	40% {
+		border-radius: 39% 61% 82% 18% / 74% 40% 60% 26%;
+	}
+
+	50% {
+		border-radius: 100%;
+	}
+
+	60% {
+		border-radius: 50% 50% 53% 47% / 72% 69% 31% 28%;
+	}
+
+	70% {
+		border-radius: 50% 50% 53% 47% / 26% 22% 78% 74%;
+	}
+
+	80% {
+		border-radius: 50% 50% 53% 47% / 26% 69% 31% 74%;
+	}
+
+	90% {
+		border-radius: 20% 80% 20% 80% / 20% 80% 20% 80%;
+	}
 }
 
 .wrong {
-    border: 3px solid yellow
+    opacity: 0.5;
 }
 
 .close {
-    border: 3px solid blue;
+    border-style: dashed;
+    animation: 1s animateBorderOne ease infinite;
+    transition: all 1s;
 }
+
+@keyframes animateBorderOne {
+  to {
+    border: 3px dashed white;
+    
+  }
+}
+
