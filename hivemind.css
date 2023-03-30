@@ -43,6 +43,8 @@ body {
     width: 200px;
 }
 
+
+/* Check and Reset Box CSS stolen from internet */
 .check {
   align-items: center;
   appearance: none;
@@ -78,12 +80,6 @@ body {
   width: auto;
   word-break: keep-all;
   z-index: 0;
-}
-
-@media (min-width: 768px) {
-  .button-77 {
-    padding: 19px 32px;
-  }
 }
 
 .check:before,
@@ -180,13 +176,7 @@ body {
     word-break: keep-all;
     z-index: 0;
   }
-  
-  /* @media (min-width: 768px) {
-    .reset {
-      padding: 19px 32px;
-    }
-  } */
-  
+    
   .reset:before,
   .reset:after {
     border-radius: 80px;
@@ -254,7 +244,7 @@ body {
     height: 200px;
 }
 
-/* thought it might be cool to use different shapes, heres the CSS */
+/* thought it might be cool to use different shapes, heres the CSS. was going to do hexagons but it was huge effort */
 .token {
     border: 3px solid black;
     margin: 2px;
@@ -284,7 +274,7 @@ body {
     background-color: purple;
     transition: background-color 1s, transform 1s;
 }
-
+/* found a really cool animation in a css example and reverse engineered it below. I changed sizes, animation, colours, a few other things */
 .right {
     animation: anim 30s infinite;
 	border-radius: 30% 70% 53% 47% / 26% 46% 54% 74%;
@@ -296,7 +286,6 @@ body {
 		drop-shadow(0 0 7px red);
 }
 
-/* I stole this animation from the net and edited it! */
 @keyframes anim { 
 	0%,
 	100% {
@@ -340,10 +329,12 @@ body {
 	}
 }
 
+/* if the colour is wrong it fades out */
 .wrong {
     opacity: 0.5;
 }
 
+/* if its close i make the border dashed and animate it */
 .close {
     border-style: dashed;
     animation: 1s animateBorderOne ease infinite;
@@ -357,3 +348,16 @@ body {
   }
 }
 
+/* Just added some colours and clicks to userInput to make it more exciting */
+.userInput {
+    transition: border-color 1s, transform 1s;
+
+}
+.userInput:hover {
+    border-color: #e7229c;
+    transition: border-color 1s, transform 1s;
+}
+    .userInput:active {
+        border: 3px solid rgb(52, 255, 1);
+
+}

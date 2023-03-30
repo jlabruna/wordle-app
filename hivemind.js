@@ -48,54 +48,57 @@ function buildInput() {
 }
 //all this does now is push the guess to the array userAnswer really
 function gameUpdate(userGuess) {
-    if (userAnswer.length < 4) { //if the user clicks more than 4 times i am ignoring the input for now. will do a message or something later
+    if (userAnswer.length < 4) { //if the user clicks more than 4 times i am ignoring the input.
         console.log("User Guess is button " + userGuess); //this is just telling me what button they pressed
-        userAnswer.push(userGuess);
-    console.log("userAnswer now has " + userAnswer.length + " values and is an array of " + userAnswer);
+        userAnswer.push(userGuess); //pushing the guess to an array for comparison later
+    console.log("userAnswer now has " + userAnswer.length + " values and is an array of " + userAnswer); //just loggin it so i can keep track if the array breaks
     }
 }
 
 //built a button that checks the input so far (userAnswer)
 function checkRow(userAnswer2) {
-    if (currRow < (gridHeight - 1)) {
-    for (let i = 0; i < answer.length; i++) { //this was much better than repeating the loop 4 times as per below! :P
-        if (answer[i] === userAnswer2[i]){
+    if (currRow < (gridHeight - 1)) { //if the row we are on is less than the total height
+    for (let i = 0; i < answer.length; i++) { //for each column
+        if (answer[i] === userAnswer2[i]){ //does  value (i) in the answer equal the (i) of the user's input
             console.log("position " + i + " is correct!");
-            document.getElementById("ref " + currRow + "/" + i).classList.add("right");
-            winCount++;
-            //add a cool
-            } else if (answer.includes(userAnswer2[i])) {
+            document.getElementById("ref " + currRow + "/" + i).classList.add("right"); //add the class right so it can do a cool animation
+            winCount++; //add a point to winCount, which ill use later on to determine if they win
+            } else if (answer.includes(userAnswer2[i])) { //if its in the answer but not exactly right...
                 console.log("position " + i + " is a right number, but is in the wrong spot...")
-                document.getElementById("ref " + currRow + "/" + i).classList.add("close");
+                document.getElementById("ref " + currRow + "/" + i).classList.add("close"); //add dashes to show its close
             } else {
-                //next ill use these to update the border colours of the tokens, rather than console log
                 console.log("position " + i + ' is the wrong answer, bucko!')
-                document.getElementById("ref " + currRow + "/" + i).classList.add("wrong");
+                document.getElementById("ref " + currRow + "/" + i).classList.add("wrong"); //fade it out using class wrong so they know its wrong
 
         }
     }
-        if (winCount == 4) {
+        if (winCount == 4) {//so if they have 4 exact answers, then wincount = 4 and the "you won" stuff runs
             console.log("You WON!!");
-            let winMsg = "<h2 id=\"beeHead\">You have <strong>BEE</strong>n successful!!</h2><img id=bee src=bee.gif>";
-            document.getElementById("game").innerHTML = winMsg; // Output the win screen
+            let winMsg = "<h2 id=\"beeHead\">You have <strong>BEE</strong>n successful!!</h2><img id=bee src=bee.gif>"; //stickin a bunch of html in a variable
+            document.getElementById("game").innerHTML = winMsg; // Output the win screen by overriding the whole board with whatevers in winMsg
             //clear the check button - got the below line from stackoverflow
             document.querySelectorAll(".check").forEach(el => el.remove());
+            let audio = new Audio('beewin.mp3'); //set audio as this mp3 file
+            audio.play(); //play the mp3 file
         }
     
-    currRow += 1;
-    currCol = 0;
-    winCount = 0;
+    currRow += 1; //adds 1 value to currRow if button is clicked
+    currCol = 0; // resets currCol to zero
+    winCount = 0; //resets winCount to zero, assuming they didnt win as per above
     console.log("the current row is " + currRow); 
     console.log("userAnswer2 is before clear " + userAnswer2);
-    //its not clearing 
     userAnswer = [];
-    // userAnswer2.splice(0,4); //had to splice all this - why doesnt userAnswer2 = [] work? function and variable same name, global scope didnt get updated.
+    // userAnswer2.splice(0,4); //had to splice all this - Vishal helped me get row 90 working, global scope didnt get updated.
     console.log("userAnswer2 after clear is " + userAnswer2);
 } else {
     console.log("YOU LOST!!")
-    let loseMsg = "<h2>YOU LOST</h2><p>YOU DISHONOUR FAMILY</p>";
+    let loseMsg = "<h2 id=\"beeHead\"><strong>YOU FAIL!</strong></h2><img id=bee src=sad.gif>"; //all the same as the you won state.
     document.getElementById("game").innerHTML = loseMsg; // Output the win screen
     //clear the check button
+        document.querySelectorAll(".check").forEach(el => el.remove());
+        let audio = new Audio('fail.mp3');
+        audio.play();
+    
 }
 }
 
