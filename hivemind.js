@@ -76,7 +76,7 @@ function checkRow(userAnswer2) {
     }
         if (winCount == 4) {
             console.log("You WON!!");
-            let winMsg = "<h2 id="beeHead">You have <strong>BEE</strong>n successful!!</h2><img id=bee src=bee.gif>";
+            let winMsg = "<h2 id=\"beeHead\">You have <strong>BEE</strong>n successful!!</h2><img id=bee src=bee.gif>";
             document.getElementById("game").innerHTML = winMsg; // Output the win screen
             //clear the check button - got the below line from stackoverflow
             document.querySelectorAll(".check").forEach(el => el.remove());
