@@ -34,17 +34,29 @@ body {
 
 /* Style the user input buttons and the corresponding tokens in the game */
 #input0, .token0 {
-    background-color: red;
+    background-color: purple;
 }
 
 #input1, .token1 {
-    background-color: blue;
+    background-color: pink;
 }
 
 #input2, .token2 {
-    background-color: green;
+    background-color: red;
 }
 
 #input3, .token3 {
     background-color: orange;
+}
+
+.right {
+    border: 3px solid green;
+}
+
+.wrong {
+    border: 3px solid yellow
+}
+
+.close {
+    border: 3px solid blue;
 }

@@ -1,4 +1,3 @@
-//TODO: Ask teech why userAnswer=[] didnt work!?! 
 
 // define size of the board as variables. 
 let gridWidth = 4;
@@ -57,18 +56,22 @@ function gameUpdate(userGuess) {
 }
 
 //built a button that checks the input so far (userAnswer)
-function checkRow(userAnswer) {
+function checkRow(userAnswer2) {
     if (currRow < (gridHeight - 1)) {
     for (let i = 0; i < answer.length; i++) { //this was much better than repeating the loop 4 times as per below! :P
-        if (answer[i] === userAnswer[i]){
+        if (answer[i] === userAnswer2[i]){
             console.log("position " + i + " is correct!");
+            document.getElementById("ref " + currRow + "/" + i).classList.add("right");
             winCount++;
             //add a cool
-            } else if (answer.includes(userAnswer[i])) {
+            } else if (answer.includes(userAnswer2[i])) {
                 console.log("position " + i + " is a right number, but is in the wrong spot...")
+                document.getElementById("ref " + currRow + "/" + i).classList.add("close");
             } else {
                 //next ill use these to update the border colours of the tokens, rather than console log
                 console.log("position " + i + ' is the wrong answer, bucko!')
+                document.getElementById("ref " + currRow + "/" + i).classList.add("wrong");
+
         }
     }
         if (winCount == 4) {
@@ -81,11 +84,11 @@ function checkRow(userAnswer) {
     currCol = 0;
     winCount = 0;
     console.log("the current row is " + currRow); 
-    console.log("userAnswer is before clear " + userAnswer);
+    console.log("userAnswer2 is before clear " + userAnswer2);
     //its not clearing 
-    // userAnswer = [];
-    userAnswer.splice(0,4); //had to splice all this - why doesnt userAnswer = [] work?
-    console.log("userAnswer after clear is " + userAnswer);
+    userAnswer = [];
+    // userAnswer2.splice(0,4); //had to splice all this - why doesnt userAnswer2 = [] work? function and variable same name, global scope didnt get updated.
+    console.log("userAnswer2 after clear is " + userAnswer2);
 } else {
     console.log("YOU LOST!!")
     let loseMsg = "<h2>YOU LOST</h2><p>YOU DISHONOUR FAMILY</p>";
