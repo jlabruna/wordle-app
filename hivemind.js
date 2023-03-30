@@ -22,13 +22,14 @@ function buildBoard() {
             token.classList.add("token"); // Add a class for the CSS to style
             token.setAttribute("id", "ref "+ h + "/" + w); // Add a reference ID for colouring
             document.getElementById("game").appendChild(token); // Stick the <span>'s created into the HTML
+
         }
     }
 }
 
+
 // Build the user input buttons
 function buildInput() {
-    
     for (let b = 0; b < gridWidth; b++) { // Loop through each column, max set by gridWidth var
         let button = document.createElement("span"); // Create a <span> for each button
         button.classList.add("token", "userInput"); // Add some style classes for CSS
@@ -36,6 +37,8 @@ function buildInput() {
         document.getElementById("game").appendChild(button); // Stick the <span>'s created into the HTML
         button.onclick = function () { // If someone clicks one of the buttons just created...
             console.log("Button clicked: " + b) // Spit out which button they clicked to console for debugging
+            let btnPress = new Audio('beep.mp3');
+            btnPress.play();
             //colour b in token 0/0
             if (currCol < 4) {
             document.getElementById("ref " + currRow + "/" + currCol).classList.add("token" + b);
@@ -81,7 +84,6 @@ function checkRow(userAnswer2) {
             let audio = new Audio('beewin.mp3'); //set audio as this mp3 file
             audio.play(); //play the mp3 file
         }
-    
     currRow += 1; //adds 1 value to currRow if button is clicked
     currCol = 0; // resets currCol to zero
     winCount = 0; //resets winCount to zero, assuming they didnt win as per above
@@ -100,6 +102,8 @@ function checkRow(userAnswer2) {
         audio.play();
     
 }
+let rowSound = new Audio('row.mp3');
+rowSound.play();
 }
 
 //running the functions here.
