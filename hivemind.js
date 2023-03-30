@@ -75,9 +75,11 @@ function checkRow(userAnswer2) {
         }
     }
         if (winCount == 4) {
-            console.log("YOU WON!!")
-            let winMsg = "<h2>YOU WON</h2><p>You get cookies?</p>";
+            console.log("You WON!!");
+            let winMsg = "<h2 id="beeHead">You have <strong>BEE</strong>n successful!!</h2><img id=bee src=bee.gif>";
             document.getElementById("game").innerHTML = winMsg; // Output the win screen
+            //clear the check button - got the below line from stackoverflow
+            document.querySelectorAll(".check").forEach(el => el.remove());
         }
     
     currRow += 1;
@@ -93,7 +95,7 @@ function checkRow(userAnswer2) {
     console.log("YOU LOST!!")
     let loseMsg = "<h2>YOU LOST</h2><p>YOU DISHONOUR FAMILY</p>";
     document.getElementById("game").innerHTML = loseMsg; // Output the win screen
-
+    //clear the check button
 }
 }
 

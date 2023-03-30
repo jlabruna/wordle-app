@@ -15,6 +15,26 @@ body {
 
 }
 
+#glowHeading3 {
+    color: gold;
+
+}
+
+#dashHeading3 {
+    color:aqua
+
+}
+
+#fadeHeading3 {
+    color: wheat;
+
+}
+
+#beeHead {
+    color: yellow;
+}
+
+
 /* use flex wrap for the boxes */
 #game {
     display: flex;
@@ -225,7 +245,14 @@ body {
     opacity: .24;
   }
 
+.fade {
+    opacity: 0.25;
+}
 
+#bee {
+    width: 200px;
+    height: 200px;
+}
 
 /* thought it might be cool to use different shapes, heres the CSS */
 .token {
@@ -240,28 +267,32 @@ body {
 /* Style the user input buttons and the corresponding tokens in the game */
 #input0, .token0 {
     background-color: red;
+    transition: background-color 1s, transform 1s;
 }
 
 #input1, .token1 {
     background-color: blue;
+    transition: background-color 1s, transform 1s;
 }
 
 #input2, .token2 {
     background-color: green;
+    transition: background-color 1s, transform 1s;
 }
 
 #input3, .token3 {
     background-color: purple;
+    transition: background-color 1s, transform 1s;
 }
 
 .right {
     animation: anim 30s infinite;
 	border-radius: 30% 70% 53% 47% / 26% 46% 54% 74%;
-	box-shadow: 0 -2vmin 4vmin gold, 0 1px 4px orange inset,
+	box-shadow: 0 -2px 4px gold, 0 1px 4px orange inset,
 		0 -2px 7px red;
 	content: "";
 	filter: drop-shadow(0 0 3px gold) drop-shadow(0 5px 4px orangered)
-		drop-shadow(2px -2px 15px orange)
+		drop-shadow(2px -2px 7px orange)
 		drop-shadow(0 0 7px red);
 }
 
