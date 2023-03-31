@@ -31,9 +31,19 @@ Apart from being a bit of fun, the purpose of this game is to serve as a first p
 
 ### Overall Approach
 
-The project initially started out as an attempt to replicate wordle, but as I started to flesh out the basics I was using a randomly generated number as a placeholder for the answer, rather than cycling through a dictionary. I then thought I could represent the numbers as colours, and thus the basic idea was born. I then ended up scrapping what I had done and restarting with this new direction in mind. I had a solid code build on Wednesday night, with error handling, out of bounds, a win and lose state, all outputting to console log. Thursday was my day to add graphical indicators and pretty it up. I had an idea to use the local browser storage to record score, social media sharing, etc, but I just ran out of time.
+The project initially started out as an attempt to replicate wordle, but as I started to flesh out the basics I was using a randomly generated number as a placeholder for the answer, rather than cycling through a dictionary. I then thought I could represent the numbers as colours, and thus the basic idea was born. I then ended up scrapping what I had done and restarting with this new direction in mind. I had a solid code build on Wednesday night, with error handling, out of bounds, a win and lose state, all outputting to console log. Thursday was my day to add graphical indicators and pretty it up and see if I could fit any additional features in to the game.
 
 My aim was to achieve a working, error free game before the deadline to allow myself time for styling.
+
+### Additional Features
+
+If the project was longer, I would have added some extra features to the game, like - 
+
+- persistent scoreboard
+- ability to select more colours or shorten grid height for increased difficulty
+- mute button
+- see the winning / losing combination on the game over screen.
+- social media share
 
 ### Technologies used
 
@@ -46,7 +56,8 @@ None within the scope of the project.
 
 ### Attribution
 
-The three main pieces of code I sourced online was a line in JS to remove the Check button once the game is completed, and 2 pieces of CSS - The check/reset button was sourced from [CSS Scan](https://getcssscan.com/css-buttons-examples), and the animation for the correct tokens on the grid was cut and pasted and reverse engineered.
+The three main pieces of code I sourced online was a line in JS to remove the Check button once the game is completed, and 2 pieces of CSS - The check/reset button was sourced from [CSS Scan](https://getcssscan.com/css-buttons-examples), and the animation for the correct tokens on the grid was cut and pasted and reverse engineered. sound effects by pixabay, except for that one famous riff :p
+
 
 
 
