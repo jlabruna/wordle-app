@@ -34,6 +34,12 @@ body {
     color: yellow;
 }
 
+#lineHead {
+  text-align: center;
+  color: yellow;
+  font-weight: bold;
+  padding: 40px;
+}
 
 /* use flex wrap for the boxes */
 #game {

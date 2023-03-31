@@ -77,7 +77,9 @@ function checkRow(userAnswer2) {
     }
         if (winCount == 4) {//so if they have 4 exact answers, then wincount = 4 and the "you won" stuff runs
             console.log("You WON!!");
+            let currentScore = currRow + 1; //defines score based on rows
             let winMsg = "<h2 id=\"beeHead\">You have <strong>BEE</strong>n successful!!</h2><img id=bee src=bee.gif>"; //stickin a bunch of html in a variable
+            winMsg += "<p id=\"lineHead\">It took " + currentScore + " lines</p>";
             document.getElementById("game").innerHTML = winMsg; // Output the win screen by overriding the whole board with whatevers in winMsg
             //clear the check button - got the below line from stackoverflow
             document.querySelectorAll(".check").forEach(el => el.remove());
