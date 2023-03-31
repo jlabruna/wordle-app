@@ -81,6 +81,11 @@ function checkRow(userAnswer2) {
             let winMsg = "<h2 id=\"beeHead\">You have <strong>BEE</strong>n successful!!</h2><img id=bee src=bee.gif>"; //stickin a bunch of html in a variable
             winMsg += "<p id=\"lineHead\">It took " + currentScore + " lines</p>";
             document.getElementById("game").innerHTML = winMsg; // Output the win screen by overriding the whole board with whatevers in winMsg
+            for (let k = 0; k < 4; k++) { 
+                let winToken = document.createElement("span");
+                winToken.classList.add("token", "token" + userAnswer[k], "right");
+                document.getElementById("game").appendChild(winToken);
+            }
             //clear the check button - got the below line from stackoverflow
             document.querySelectorAll(".check").forEach(el => el.remove());
             let audio = new Audio('beewin.mp3'); //set audio as this mp3 file
@@ -96,8 +101,13 @@ function checkRow(userAnswer2) {
     console.log("userAnswer2 after clear is " + userAnswer2);
 } else {
     console.log("YOU LOST!!")
-    let loseMsg = "<h2 id=\"beeHead\"><strong>YOU FAIL!</strong></h2><img id=bee src=sad.gif>"; //all the same as the you won state.
+    let loseMsg = "<h2 id=\"beeHead\"><strong>YOU FAIL!</strong></h2><img id=bee src=sad.gif><br />"; //all the same as the you won state.
     document.getElementById("game").innerHTML = loseMsg; // Output the win screen
+    for (let k = 0; k < 4; k++) { 
+        let loseToken = document.createElement("span");
+        loseToken.classList.add("token", "token" + answer[k], "right");
+        document.getElementById("game").appendChild(loseToken);
+    }
     //clear the check button
         document.querySelectorAll(".check").forEach(el => el.remove());
         let audio = new Audio('fail.mp3');
