@@ -33,7 +33,10 @@ function buildBoard() {
 let totalText = "<p id=\"lineHead\">You have won " + outputScore + " times!</p>";
 document.getElementById("scoreboard").innerHTML = totalText; 
 
-
+function resetWin() {
+    localStorage.removeItem("totalScore");
+    location.reload();
+}
 
 
 // Build the user input buttons
@@ -96,7 +99,8 @@ function checkRow(userAnswer2) {
                 winToken.classList.add("token", "token" + userAnswer[k], "right");
                 document.getElementById("game").appendChild(winToken);
             }
-            //clear the check button - got the below line from stackoverflow
+            //clear the persistent score and check button - got the below line from stackoverflow
+            document.querySelectorAll("#scoreboard").forEach(el => el.remove());
             document.querySelectorAll(".check").forEach(el => el.remove());
             let audio = new Audio('beewin.mp3'); //set audio as this mp3 file
             audio.play(); //play the mp3 file
@@ -113,12 +117,15 @@ function checkRow(userAnswer2) {
     console.log("YOU LOST!!")
     let loseMsg = "<h2 id=\"beeHead\"><strong>YOU FAIL!</strong></h2><img id=bee src=sad.gif><br />"; //all the same as the you won state.
     document.getElementById("game").innerHTML = loseMsg; // Output the win screen
+    totalScore = 0;
+    localStorage.setItem("totalScore", totalScore);
     for (let k = 0; k < 4; k++) { 
         let loseToken = document.createElement("span");
         loseToken.classList.add("token", "token" + answer[k], "right");
         document.getElementById("game").appendChild(loseToken);
     }
-    //clear the check button
+    //clear the scoreboard and check button
+        document.querySelectorAll("#scoreboard").forEach(el => el.remove());
         document.querySelectorAll(".check").forEach(el => el.remove());
         let audio = new Audio('fail.mp3');
         audio.play();

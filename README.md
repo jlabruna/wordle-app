@@ -39,7 +39,6 @@ My aim was to achieve a working, error free game before the deadline to allow my
 
 If the project was longer, I would have added some extra features to the game, like - 
 
-- persistent scoreboard (game just shows how many rows you took)
 - ability to select more colours or shorten grid height for increased difficulty
 - mute button
 - social media share
