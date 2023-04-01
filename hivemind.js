@@ -6,6 +6,8 @@ let gridHeight = 8;
 //important variables - the user's answer (userAnswer) and the game over counter
 let userAnswer = [];
 let winCount = 0;
+let totalScore = Number(localStorage.getItem("totalScore")) || 0;
+let outputScore = totalScore;
 
 //current row and col. will prob need to move this to a function
 let currRow = 0;
@@ -26,6 +28,12 @@ function buildBoard() {
         }
     }
 }
+
+// Build the scoreboard
+let totalText = "<p id=\"lineHead\">You have won " + outputScore + " times!</p>";
+document.getElementById("scoreboard").innerHTML = totalText; 
+
+
 
 
 // Build the user input buttons
@@ -81,6 +89,8 @@ function checkRow(userAnswer2) {
             let winMsg = "<h2 id=\"beeHead\">You have <strong>BEE</strong>n successful!!</h2><img id=bee src=bee.gif>"; //stickin a bunch of html in a variable
             winMsg += "<p id=\"lineHead\">It took " + currentScore + " lines</p>";
             document.getElementById("game").innerHTML = winMsg; // Output the win screen by overriding the whole board with whatevers in winMsg
+            totalScore = (totalScore + 1);
+            localStorage.setItem("totalScore", totalScore);
             for (let k = 0; k < 4; k++) { 
                 let winToken = document.createElement("span");
                 winToken.classList.add("token", "token" + userAnswer[k], "right");
