@@ -1,6 +1,6 @@
 
 // define size of the board as variables. 
-let gridWidth = 4;
+let gridWidth = 5;
 let gridHeight = 8;
 
 //important variables - the user's answer (userAnswer) and the game over counter
@@ -13,7 +13,7 @@ let outputScore = totalScore;
 let currRow = 0;
 let currCol = 0;
 
-const answer = Array.from({ length: 4 }, () => Math.floor(Math.random() * 4)); // Fill the 'answer' array with 4 random numbers between 0 and 4
+const answer = Array.from({ length: 5 }, () => Math.floor(Math.random() * 5)); // Fill the 'answer' array with 5 random numbers between 0 and 5
 console.log("The answer is " + answer);
 
 // Build the game board
@@ -51,7 +51,7 @@ function buildInput() {
             let btnPress = new Audio('beep.mp3');
             btnPress.play();
             //colour b in token 0/0
-            if (currCol < 4) {
+            if (currCol < 5) {
             document.getElementById("ref " + currRow + "/" + currCol).classList.add("token" + b);
                 currCol += 1;
             }
@@ -62,7 +62,7 @@ function buildInput() {
 }
 //all this does now is push the guess to the array userAnswer really
 function gameUpdate(userGuess) {
-    if (userAnswer.length < 4) { //if the user clicks more than 4 times i am ignoring the input.
+    if (userAnswer.length < 5) { //if the user clicks more than 5 times i am ignoring the input.
         console.log("User Guess is button " + userGuess); //this is just telling me what button they pressed
         userAnswer.push(userGuess); //pushing the guess to an array for comparison later
     console.log("userAnswer now has " + userAnswer.length + " values and is an array of " + userAnswer); //just loggin it so i can keep track if the array breaks
@@ -86,7 +86,7 @@ function checkRow(userAnswer2) {
 
         }
     }
-        if (winCount == 4) {//so if they have 4 exact answers, then wincount = 4 and the "you won" stuff runs
+        if (winCount == 5) {//so if they have 4 exact answers, then wincount = 4 and the "you won" stuff runs
             console.log("You WON!!");
             let currentScore = currRow + 1; //defines score based on rows
             let winMsg = "<h2 id=\"beeHead\">You have <strong>BEE</strong>n successful!!</h2><img id=bee src=bee.gif>"; //stickin a bunch of html in a variable
@@ -94,7 +94,7 @@ function checkRow(userAnswer2) {
             document.getElementById("game").innerHTML = winMsg; // Output the win screen by overriding the whole board with whatevers in winMsg
             totalScore = (totalScore + 1);
             localStorage.setItem("totalScore", totalScore);
-            for (let k = 0; k < 4; k++) { 
+            for (let k = 0; k < 5; k++) { 
                 let winToken = document.createElement("span");
                 winToken.classList.add("token", "token" + userAnswer[k], "right");
                 document.getElementById("game").appendChild(winToken);
@@ -119,7 +119,7 @@ function checkRow(userAnswer2) {
     document.getElementById("game").innerHTML = loseMsg; // Output the win screen
     totalScore = 0;
     localStorage.setItem("totalScore", totalScore);
-    for (let k = 0; k < 4; k++) { 
+    for (let k = 0; k < 5; k++) { 
         let loseToken = document.createElement("span");
         loseToken.classList.add("token", "token" + answer[k], "right");
         document.getElementById("game").appendChild(loseToken);

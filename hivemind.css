@@ -46,7 +46,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
-    width: 200px;
+    width: 250px;
 }
 
 
@@ -280,6 +280,12 @@ body {
     background-color: purple;
     transition: background-color 1s, transform 1s;
 }
+
+#input4, .token4 {
+  background-color: rgb(175, 247, 7);
+  transition: background-color 1s, transform 1s;
+}
+
 /* found a really cool animation in a css example and reverse engineered it below. I changed sizes, animation, colours, a few other things */
 .right {
     animation: anim 30s infinite;
