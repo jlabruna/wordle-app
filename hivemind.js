@@ -115,7 +115,7 @@ function checkRow(userAnswer2) {
     console.log("userAnswer2 after clear is " + userAnswer2);
 } else {
     console.log("YOU LOST!!")
-    let loseMsg = "<h2 id=\"beeHead\"><strong>YOU FAIL!</strong></h2><img id=bee src=sad.gif><br />"; //all the same as the you won state.
+    let loseMsg = "<h2 id=\"beeHead\"><strong>YOU FAIL!</strong></h2><img id=bee src=sad.gif>"; //all the same as the you won state.
     document.getElementById("game").innerHTML = loseMsg; // Output the win screen
     totalScore = 0;
     localStorage.setItem("totalScore", totalScore);

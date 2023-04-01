@@ -246,8 +246,9 @@ body {
 }
 
 #bee {
-    width: 200px;
-    height: 200px;
+    width: 220px;
+    height: 220px;
+    padding-bottom: 40px;
 }
 
 /* thought it might be cool to use different shapes, heres the CSS. was going to do hexagons but it was huge effort */
